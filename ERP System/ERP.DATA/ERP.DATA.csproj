@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.Core\ERP.Core.csproj" />
+  </ItemGroup>
+
 </Project>
