@@ -5,3 +5,7 @@
 /ERP System/.vs
 /ERP System/ERP/bin/Debug/net8.0
 /ERP System/ERP/obj
+/ERP System/ERP.Core/obj
+/ERP System/ERP.DATA/obj
+/ERP System/ERP.Services/obj
+/.gitignore
