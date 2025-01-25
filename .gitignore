@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ERP System/.vs
+/ERP System/ERP/bin/Debug/net8.0
+/ERP System/ERP/obj
