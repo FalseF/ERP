@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ERP.Data;
+using ERP.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.RegisterCors();
+
+builder.Services.RegisterApplicationServices();
 
 var app = builder.Build();
 
@@ -24,7 +29,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseCors("AllowAnyOrigin");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
