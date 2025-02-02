@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ERP.Core\ERP.Core.csproj" />
     <ProjectReference Include="..\ERP.DATA\ERP.Data.csproj" />
-    <ProjectReference Include="..\ERP.Services\ERP.Services.csproj" />
   </ItemGroup>
 
 </Project>

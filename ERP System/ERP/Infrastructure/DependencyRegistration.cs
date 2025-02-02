@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
+﻿using ERP.Core;
+using ERP.Data;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ERP.Infrastructure
 {
