@@ -12,5 +12,8 @@ namespace ERP.Core.Domains
         public string Type { get; set; } = String.Empty;
         public DateTime UploadedDate { get; set; }
         public string Path { get; set; } = String.Empty;
+
+        // Navigation property
+        public Employee Employee { get; set; } = default!;
     }
 }

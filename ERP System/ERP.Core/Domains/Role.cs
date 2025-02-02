@@ -11,5 +11,6 @@ namespace ERP.Core.Domains
         public string Name { get; set; } = String.Empty;
         public int SystemId { get; set; }
         public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
+        public ICollection<RoleEmployee> RoleEmployees { get; set; } = new List<RoleEmployee>();
     }
 }

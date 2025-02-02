@@ -16,13 +16,43 @@ namespace ERP.Data
 
         }
 
+        public DbSet<SystemInfo> SystemInfos { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
+        public DbSet<RoleEmployee> RoleEmployees { get; set; }
+        public DbSet<EmployeeDocument> EmployeeDocuments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Employee-SystemInfo (One-to-Many)
+            modelBuilder.Entity<Employee>()
+                .HasOne(e => e.SystemInfo)
+                .WithMany(s => s.Employees)
+                .HasForeignKey(e => e.SystemId);
+
+            // Employee-EmployeeDocument (One-to-Many)
+            modelBuilder.Entity<EmployeeDocument>()
+                .HasOne(ed => ed.Employee)
+                .WithMany(e => e.EmployeeDocuments)
+                .HasForeignKey(ed => ed.EmployeeId);
+
+            // RoleEmployee (Many-to-Many between Role and Employee)
+            modelBuilder.Entity<RoleEmployee>()
+                .HasKey(re => new { re.RoleId, re.EmployeeId });
+
+            modelBuilder.Entity<RoleEmployee>()
+                .HasOne(re => re.Role)
+                .WithMany(r => r.RoleEmployees)
+                .HasForeignKey(re => re.RoleId);
+
+            modelBuilder.Entity<RoleEmployee>()
+                .HasOne(re => re.Employee)
+                .WithMany(e => e.RoleEmployees)
+                .HasForeignKey(re => re.EmployeeId);
 
             // Configure composite key for RolePermission
             modelBuilder.Entity<RolePermission>()

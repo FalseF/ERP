@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ERP.Core.Domains
 {
-    public class System : BaseEntity
+    public class SystemInfo : BaseEntity
     {
         public string Name { get; set; } = String.Empty;
+
+        // Navigation properties
+        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
     }
 }

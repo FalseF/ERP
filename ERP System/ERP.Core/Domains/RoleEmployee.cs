@@ -10,5 +10,9 @@ namespace ERP.Core.Domains
     {
         public int RoleId { get; set; }
         public int EmployeeId { get; set; }
+
+        // Navigation properties
+        public Role Role { get; set; } = default!;
+        public Employee Employee { get; set; } = default!;
     }
 }

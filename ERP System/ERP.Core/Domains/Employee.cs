@@ -24,5 +24,10 @@ namespace ERP.Core.Domains
         public string Status { get; set; } = string.Empty;
         public decimal Salary { get; set; }
         public string Password { get; set; } = string.Empty;
+        
+        // Navigation properties
+        public SystemInfo SystemInfo { get; set; } = default!;
+        public ICollection<EmployeeDocument> EmployeeDocuments { get; set; } = new List<EmployeeDocument>();
+        public ICollection<RoleEmployee> RoleEmployees { get; set; } = new List<RoleEmployee>();
     }
 }
